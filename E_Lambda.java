@@ -28,11 +28,19 @@ R apply (T, t);
 
 interface Consumer<T>
 void accept(T t)
+
+4. supplier<T>
+:값을공급 생성 하는데 사용 입력 값이 필요로 하지 않음
+외부에서 값을 가져오거나 데이터를 생성하여 반환하는 역활
+메서드
+interface supplier
  */
+
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class E_Lambda {
     public static void main(String[] args) {
@@ -58,8 +66,8 @@ public class E_Lambda {
         System.out.println("홍기수 메롱");
         System.out.println("nice to meet you");
 
-        Function<String, Integer> LengthAndAquare = StringLength.andThen(square);
-        System.out.println(lengthAndSquare.apply);
+        Function<String, Integer> LengthAndSquare = stringLength.andThen(square);
+        System.out.println(LengthAndSquare.apply("이 문자열 길이의 제곱값은?"));
 
         System.out.println("consumer");
         Consumer<String> printMessage = msg -> System.out.println(msg);
@@ -70,5 +78,14 @@ public class E_Lambda {
 
         Consumer<String> combinedConsumer = printMessage.andThen(printLength);
         combinedConsumer.accept("123");
+
+        System.out.println("Supplier");
+
+        // MAth.random(); 0.0 과 1.0사이의
+        Supplier<Double> randomValue = () -> Math.random();
+
+      //  Supplier<Double> random
+
+        System.out.println(randomValue.get());
     }
 }
