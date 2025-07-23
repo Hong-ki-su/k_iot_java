@@ -1,0 +1,22 @@
+package org.example.chapter15.b_signup;
+
+// 사용자-회원가입
+
+// 사용자 회원가입 요청
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+// 데이터 전송 객체
+// 프로세스 계층 간에 데이터를 전달하는
+@AllArgsConstructor
+@Getter
+public class UserSignUpRequestDto {
+    private String username;
+    private String password;
+    private String passwordCheck;
+    private String name;
+    private String email;
+    private String phone;
+    private String nickname;
+}
